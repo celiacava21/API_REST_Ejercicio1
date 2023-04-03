@@ -214,7 +214,7 @@ public class ClienteController {
         try {
 
             if (clienteDB != null) {
-                String mensaje = "El producto se ha creado correctamente";
+                String mensaje = "El cliente se ha creado correctamente";
                 responseAsMap.put("mensaje", mensaje);
                 responseAsMap.put("cliente", clienteDB);
                 responseEntity = new ResponseEntity<Map<String, Object>>(responseAsMap, HttpStatus.CREATED);
@@ -310,7 +310,7 @@ public class ClienteController {
          
  
          try {
-              //Recuperamos el producto:
+              //Recuperamos el cliente:
               Cliente cliente = clienteService.findById(id);
               if(cliente != null) {
                  clienteService.delete(cliente);
