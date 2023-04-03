@@ -18,6 +18,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
@@ -46,6 +47,9 @@ public class Cliente implements Serializable {
     
     private String nombre;
     private String apellidos;
+
+    @NotNull
+    private String imagenCliente;
     
     @PastOrPresent
     private LocalDate fechaAlta;
