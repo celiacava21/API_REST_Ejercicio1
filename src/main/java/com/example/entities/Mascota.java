@@ -3,6 +3,7 @@ package com.example.entities;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "mascotas")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Mascota {
 
     @Id
@@ -36,7 +38,7 @@ public class Mascota {
     private Genero genero;
     private LocalDate fechaNacimiento;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JsonIgnore
   //  @JsonManagedReference
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Table(name = "hoteles")
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Hotel implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -34,7 +35,7 @@ public class Hotel implements Serializable{
     private long id;
     private String nombre;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "hotel")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "hotel")
     @JsonIgnore
 
     private List<Cliente> clientes;

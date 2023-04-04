@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.entities.Cliente;
+import com.example.entities.Mascota;
 import com.example.model.FileUploadResponse;
 import com.example.services.ClienteService;
 import com.example.utilities.FileDownloadUtil;
@@ -210,6 +211,8 @@ public class ClienteController {
         }
 
         Cliente clienteDB = clienteService.save(cliente);
+
+      
 
         try {
 
